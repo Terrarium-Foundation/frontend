@@ -1,5 +1,6 @@
 <script>
     import Icon from '@iconify/svelte';
+    export var navState = 0;
 </script>
 
 <div>
@@ -10,16 +11,22 @@
         <div class="nav-spacer"></div>
         <div class="nav-right">
             <div>
-                <Icon icon="ant-design:control-outlined" />
-                <div>Control Panel</div>
+                <a href="/control-panel" on:click={()=>{navState=0}}>
+                    <Icon icon="ant-design:control-outlined" />
+                    <div>Control Panel</div>
+                </a>
             </div>
             <div>
-                <Icon icon="ion:analytics-sharp" />
-                <div>Analytics</div>
+                <a href="/data-analytics" on:click={()=>{navState=1}}>
+                    <Icon icon="ion:analytics-sharp" />
+                    <div>Analytics</div>
+                </a>
             </div>
             <div>
-                <Icon icon="material-symbols:home-outline-rounded" />
-                <div>Home</div>
+                <a href="/" on:click={()=>{navState=2}}>
+                    <Icon icon="material-symbols:home-outline-rounded" />
+                    <div>Home</div>
+                </a>
             </div>
         </div>
     </div>
@@ -31,8 +38,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        font-weight: 600;
-        font-size: 16px;
         background: #EDF5E1;
     }
 
@@ -57,7 +62,17 @@
         margin-left: 30px;
     }
 
-    .nav-right>div>div{
+    .nav-right>div>a{
+        color: black;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .nav-right>div>a>div{
         margin-left: 10px;
     }
 
