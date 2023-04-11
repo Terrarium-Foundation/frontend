@@ -27,11 +27,11 @@
 <div>
     <div class="toggle-panel">
         <div class="panel-header">
-            <div style="font-size: 24px; font-weight: 700; margin-right: 5%">Light</div>
+            <div style="font-size: 24px; font-weight: 700; margin-right: 5%">Water</div>
             {#if panelStatus=="working"}
-                <Icon icon="ph:sun-bold" color="orange" width="32" height="32"/>
+                <Icon icon="material-symbols:water-drop" color="blue" width="32" height="32"/>
                 {:else}
-                <Icon icon="ph:sun-bold" color="gray" width="32" height="32"/>
+                <Icon icon="material-symbols:water-drop" color="gray" width="32" height="32"/>
             {/if}
         </div>
         <div class="panel-content">

@@ -1,6 +1,7 @@
 <script>
     var ariaExpanded = false;
     export var toggleText = "";
+    export var fontSize = "";
 
     function handleToggle(){
         if(ariaExpanded){
@@ -14,7 +15,7 @@
 
 <div>
     <div class="slider">
-        <div class="toggle-text">{toggleText}</div>
+        <div class="toggle-text" style="font-size: {fontSize}">{toggleText}</div>
         <button class="outer-slider" aria-expanded={ariaExpanded} on:click={handleToggle}>
             <div class="slider-ball" aria-expanded={ariaExpanded}></div>
         </button>
@@ -31,6 +32,8 @@
 
     .toggle-text{
         margin-right: 10px;
+        font-size: 16px;
+        font-weight: 700;
     }
 
     .outer-slider[aria-expanded="false"]{
