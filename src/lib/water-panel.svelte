@@ -1,10 +1,26 @@
 <script>
+    import axios from "axios";
     import Slider from "./slider.svelte";
     import Icon from '@iconify/svelte';
+    import { onMount } from "svelte";
 
     var panelStatus = "working"
     var statusCSS = ""
     var showInterval = false
+
+    var toggleState = false;
+    var intervalState = false;
+
+    onMount(async()=>{
+        axios.get("http://localhost:4000/state/getstate")
+            .then((res)=>{
+                console.log(res.data)
+                if(res.data.water==="on"){toggleState=true;}
+                else{toggleState=false;}
+                if(res.data.waterInterval==="on"){intervalState=true;}
+                else{intervalState=false;}
+            })
+    })
 
     function handleInterval(){
         if(showInterval){
@@ -39,12 +55,12 @@
                 <div style="font-size: 16px; font-weight: 700;">status:&nbsp;</div>
                 <div style={statusCSS}>{panelStatus}</div>
             </div>
-            <Slider toggleText="Toggle"/>
+            <Slider toggleText="Toggle" type="water" ariaExpanded={toggleState}/>
             <div>
                 <div class="interval-toggle">
-                    <Slider toggleText="Interval(min) "/>
+                    <Slider toggleText="Interval(min) " type="waterInterval" ariaExpanded={intervalState}/>
                 </div>
-
+ 
                 <div class="interval-input">
                     <div class="interval-input-input">
                         <div>On for:&nbsp;</div>

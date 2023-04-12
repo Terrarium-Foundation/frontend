@@ -1,22 +1,37 @@
 <script>
-    var ariaExpanded = false;
+
+    import axios from "axios";
+
+    export var ariaExpanded = false;
     export var toggleText = "";
     export var fontSize = "";
+    export var type = "";
 
-    function handleToggle(){
+    const handleToggle=(stateType)=>{
         if(ariaExpanded){
-            ariaExpanded=false;
+            axios.post("http://localhost:4000/state/updatestate", {toggle: stateType, action: "off", prev: "on"}).then((res)=>{
+                console.log(res.data);
+                ariaExpanded=false;
+            }, (error)=>{
+                console.log(error);
+            })
         }
         else{
-            ariaExpanded=true;
+            axios.post("http://localhost:4000/state/updatestate", {toggle: stateType, action: "on", prev: "off"}).then((res)=>{
+                console.log(res.data);
+                ariaExpanded=true;
+            }, (error)=>{
+                console.log(error);
+            })
         }
     }
+
 </script>
 
 <div>
     <div class="slider">
         <div class="toggle-text" style="font-size: {fontSize}">{toggleText}</div>
-        <button class="outer-slider" aria-expanded={ariaExpanded} on:click={handleToggle}>
+        <button class="outer-slider" aria-expanded={ariaExpanded} on:click={()=>{handleToggle(type)}}>
             <div class="slider-ball" aria-expanded={ariaExpanded}></div>
         </button>
     </div>

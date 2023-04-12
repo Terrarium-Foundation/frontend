@@ -1,14 +1,31 @@
 <script>
+    import axios from "axios";
     import Slider from "./slider.svelte";
     import Icon from '@iconify/svelte';
+    import { onMount } from 'svelte';
 
     var panelStatus = "working"
     var statusCSS = ""
     var showInterval = false
 
+    var toggleState = false;
+    var intervalState = false;
+
+    onMount(async()=>{
+        axios.get("http://localhost:4000/state/getstate")
+            .then((res)=>{
+                console.log(res.data)
+                if(res.data.light==="on"){toggleState=true;}
+                else{toggleState=false;}
+                if(res.data.lightInterval==="on"){intervalState=true;}
+                else{intervalState=false;}
+            })
+    })
+
     function handleInterval(){
         if(showInterval){
             showInterval=false;
+
         }
         else{
             showInterval=true;
@@ -39,10 +56,10 @@
                 <div style="font-size: 16px; font-weight: 700;">status:&nbsp;</div>
                 <div style={statusCSS}>{panelStatus}</div>
             </div>
-            <Slider toggleText="Toggle"/>
+            <Slider toggleText="Toggle" type="light" ariaExpanded={toggleState}/>
             <div>
                 <div class="interval-toggle">
-                    <Slider toggleText="Interval(min) "/>
+                    <Slider toggleText="Interval(min) " type="lightInterval" ariaExpanded={intervalState}/>
                 </div>
 
                 <div class="interval-input">
