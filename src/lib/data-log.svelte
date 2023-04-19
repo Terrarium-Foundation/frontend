@@ -9,31 +9,35 @@
     </div>
     <div class="data-col">
         <div>
-            <Icon icon="mdi:humidity" width="24" height="24"/>
-            <div class="data-reading">
-                <div>Humidity:&nbsp;</div>
-                <div class="value">6565</div>
+            <div>
+                <Icon icon="mdi:humidity" width="24" height="24"/>
+                <div class="data-reading">
+                    <div>Humidity:&nbsp;</div>
+                    <div class="value">6565</div>
+                </div>
+            </div>
+            <div>
+                <Icon icon="carbon:soil-moisture-field" width="24" height="24"/>
+                <div class="data-reading">
+                    <div>Soil Moisture:&nbsp;</div>
+                    <div class="value">2421</div>
+                </div>
             </div>
         </div>
-        <div>
-            <Icon icon="mdi:home-temperature" width="24" height="24"/>
-            <div class="data-reading">
-                <div>Temperature:&nbsp;</div>
-                <div class="value">3452</div>
+        <div style="margin-left: 40px;">
+            <div>
+                <Icon icon="mdi:home-temperature" width="24" height="24"/>
+                <div class="data-reading">
+                    <div>Temperature:&nbsp;</div>
+                    <div class="value">3452</div>
+                </div>
             </div>
-        </div>
-        <div>
-            <Icon icon="carbon:soil-moisture-field" width="24" height="24"/>
-            <div class="data-reading">
-                <div>Soil Moisture:&nbsp;</div>
-                <div class="value">2421</div>
-            </div>
-        </div>
-        <div>
-            <Icon icon="mdi:car-light-dimmed" width="24" height="24"/>
-            <div class="data-reading">
-                <div>Light Intensity:&nbsp;</div>
-                <div class="value">234</div>
+            <div>
+                <Icon icon="mdi:car-light-dimmed" width="24" height="24"/>
+                <div class="data-reading">
+                    <div>Light Intensity:&nbsp;</div>
+                    <div class="value">234</div>
+                </div>
             </div>
         </div>
     </div>
@@ -53,8 +57,10 @@
     .data-col{
         margin-left: 2%;
         margin-top: 1%;
+        display: flex;
+        flex-direction: row;
     }
-    .data-col>div{
+    .data-col>div>div{
         display: flex;
         flex-direction: row;
         align-items: center;
