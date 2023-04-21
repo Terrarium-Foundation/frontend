@@ -58,10 +58,10 @@
             <Slider toggleText="Toggle" type="water" ariaExpanded={toggleState}/>
             <div>
                 <div class="interval-toggle">
-                    <Slider toggleText="Interval(min) " type="waterInterval" ariaExpanded={intervalState}/>
+                    <Slider toggleText="Interval(min) " type="pumpInterval" ariaExpanded={intervalState}/>
                 </div>
  
-                <div class="interval-input">
+                <!-- <div class="interval-input">
                     <div class="interval-input-input">
                         <div>On for:&nbsp;</div>
                         <input type="text">
@@ -70,7 +70,7 @@
                         <div>Every:&nbsp;</div>
                         <input type="text">
                     </div>
-                </div>
+                </div> -->
  
             </div>
         </div>

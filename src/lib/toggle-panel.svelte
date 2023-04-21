@@ -62,7 +62,7 @@
                     <Slider toggleText="Interval(min) " type="lightInterval" ariaExpanded={intervalState}/>
                 </div>
 
-                <div class="interval-input">
+                <!-- <div class="interval-input">
                     <div class="interval-input-input">
                         <div>On for:&nbsp;</div>
                         <input type="text">
@@ -71,7 +71,7 @@
                         <div>Every:&nbsp;</div>
                         <input type="text">
                     </div>
-                </div>
+                </div> -->
  
             </div>
         </div>
